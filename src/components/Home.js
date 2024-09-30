@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Card } from "react-bootstrap";
-import { useIntl, FormattedMessage } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl'; // Importamos useIntl y FormattedMessage
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,13 +14,11 @@ function Home() {
   const [selectedTitle, setSelectedTitle] = useState(""); 
   const [selectedText, setSelectedText] = useState(""); 
 
-  const intl = useIntl(); 
-
+  const intl = useIntl();
   const imagesCycling = Array(10).fill("https://cdn.shopify.com/s/files/1/0551/0388/1250/files/cycling_benefits_styrkr.jpg?v=1676894320");
   const imagesRunning = Array(10).fill("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Ludovic_and_Lauren_%288425515069%29.jpg/800px-Ludovic_and_Lauren_%288425515069%29.jpg");
   const imagesSwimming = Array(10).fill("https://clearcomfort.com/wp-content/uploads/2019/05/AdobeStock_34148619-1024x683.jpeg");
 
-  // Cargar la información del usuario
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -32,11 +30,14 @@ function Home() {
     fetchData();
   }, []);
 
-  // Manejar la apertura del modal
-  const handleCardClick = (image, title, text) => {
+  const handleCardClick = (image, title) => {
+    const location = intl.formatMessage({ id: 'location' }, { location: information.ciudad });
+    const duration = intl.formatMessage({ id: 'duration' }, { duration: information.duracion });
+    const text = `${location}, ${duration}`;
+  
     setSelectedImage(image);
     setSelectedTitle(title);
-    setSelectedText(text);
+    setSelectedText(text); 
     setShowModal(true); 
   };
 
@@ -68,8 +69,10 @@ function Home() {
               <Col key={index} className="col-6">
                 <Card
                   className="text-white carta"
-                  onClick={() => handleCardClick(image, intl.formatMessage({ id: 'cycling_session', defaultMessage: 'Cycling Session' }), 
-                    intl.formatMessage({ id: 'location_duration' }, { location: information.ciudad, duration: information.duracion }))}
+                  onClick={() => handleCardClick(
+                    image, 
+                    intl.formatMessage({ id: 'cycling_session', defaultMessage: 'Cycling Session' })
+                  )}
                   style={{ cursor: "pointer" }}
                 >
                   <Card.Img src={image} alt="Card-image" className="Card-image" />
@@ -94,8 +97,10 @@ function Home() {
               <Col key={index} className="col-6">
                 <Card
                   className="text-white carta"
-                  onClick={() => handleCardClick(image, intl.formatMessage({ id: 'running_session', defaultMessage: 'Running Session' }), 
-                    intl.formatMessage({ id: 'location_duration' }, { location: information.ciudad, duration: information.duracion }))}
+                  onClick={() => handleCardClick(
+                    image, 
+                    intl.formatMessage({ id: 'running_session', defaultMessage: 'Running Session' })
+                  )}
                   style={{ cursor: "pointer" }}
                 >
                   <Card.Img src={image} alt="Card-image" className="Card-image" />
@@ -119,8 +124,10 @@ function Home() {
               <Col key={index} className="col-6">
                 <Card
                   className="text-white carta"
-                  onClick={() => handleCardClick(image, intl.formatMessage({ id: 'swimming_session', defaultMessage: 'Swimming Session' }), 
-                    intl.formatMessage({ id: 'location_duration' }, { location: information.ciudad, duration: information.duracion }))}
+                  onClick={() => handleCardClick(
+                    image, 
+                    intl.formatMessage({ id: 'swimming_session', defaultMessage: 'Swimming Session' })
+                  )}
                   style={{ cursor: "pointer" }}
                 >
                   <Card.Img src={image} alt="Card-image" className="Card-image" />
