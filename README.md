@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+### README - Parcial React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Autor: Santiago Navarrete  
+#### Código: 202211202
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Descripción General del Proyecto
 
-### `npm start`
+Este proyecto consiste en una aplicación web desarrollada en React que incluye un sistema de autenticación (Log In), una página principal (Home) con diferentes secciones para visualizar contenido, y un modal que despliega información adicional al hacer clic en elementos específicos. A lo largo del proceso, se utilizaron varios componentes y elementos propios del entorno de desarrollo de React, así como bibliotecas adicionales para mejorar la funcionalidad y el diseño.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Pasos para la Ejecución
 
-### `npm test`
+1. **Clonar el Repositorio:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   Primero, se debe clonar el repositorio del proyecto en la máquina local utilizando el siguiente comando:
+   
+   ```bash
+   git clone https://github.com/usuario/proyecto-parcial-react.git
+   ```
 
-### `npm run build`
+2. **Instalar Dependencias:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   Luego de clonar el repositorio, instalar las dependencias necesarias ejecutando el siguiente comando:
+   
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Ejecutar el Proyecto:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Una vez que las dependencias estén instaladas,  ejecutar la aplicación con:
+   
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+   Esto el proyecto en el navegador en la dirección `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Proceso de Desarrollo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 1. **Log In:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   El primer componente desarrollado fue el formulario de **Log In**. Este componente permite a los usuarios ingresar un correo electrónico y contraseña. Para su implementación, se utilizaron los componentes de **React-Bootstrap** como `Form`, `Button`, `Container`, y `Row`. El formulario valida que el correo tenga el formato correcto y que la contraseña tenga al menos 6 caracteres. Al enviar la información correctamente, se redirige al usuario a la página principal (Home).
 
-## Learn More
+   **Componentes y herramientas utilizadas:**
+   - React Bootstrap para la interfaz de usuario.
+   - React Router (`useNavigate`) para la navegación entre páginas.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 2. **Home:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Una vez completado el Log In, se procedió con el desarrollo de la página **Home**, que incluye tres secciones: **Cycling**, **Running**, y **Swimming**. En cada sección se muestran imágenes con información de una actividad relacionada, obtenida desde un mock de datos proporcionados por una API.
 
-### Code Splitting
+   **Componentes y herramientas utilizadas:**
+   - Estructura de columnas y filas con **React Bootstrap** (`Container`, `Row`, `Col`).
+   - Uso de hooks de React como `useState` y `useEffect` para manejar el estado y la carga de datos.
+   - API mock para cargar la información dinámica del usuario y actividades.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 3. **Modal:**
 
-### Analyzing the Bundle Size
+  Se agregó un **Modal** que aparece cuando el usuario hace clic en cualquiera de las tarjetas de actividad (Cycling, Running, Swimming). Este modal muestra información detallada de la actividad seleccionada, incluyendo una imagen más grande, la ubicación, y la duración.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   **Componentes y herramientas utilizadas:**
+   - **React Bootstrap Modal** para mostrar información adicional.
+   - **React Intl** para la internacionalización de los textos en el modal.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Decisiones y Proceso de Desarrollo
 
-### Advanced Configuration
+- **Internacionalización (I18N):**  
+  Se utilizó **React Intl** para permitir la internacionalización de los textos de la aplicación. Se añadieron botones que permiten cambiar entre inglés y español, y se tradujeron todos los textos estáticos, como los títulos y mensajes de las tarjetas y del modal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **API Mockaroo:**  
+  Se decidió utilizar un API de datos simulada para la información del usuario y las actividades. Esto permitió trabajar con datos dinámicos, dándole mayor realismo a la aplicación.
 
-### Deployment
+- **React Bootstrap:**  
+  Se utilizó ampliamente **React Bootstrap** para el diseño y la estructura de los componentes. Esto ayudó a mantener una interfaz de usuario responsiva y moderna.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### Retos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Uno de los principales desafíos durante el desarrollo del proyecto fue replicar fielmente el diseño mockup proporcionado, especialmente durante la fase presencial del examen. A pesar de algunos problemas en la alineación y estilo visual, se logró implementar una lógica funcional que cumple con los requisitos solicitados.
+
+En la parte del desarrollo del modal, fue necesario trabajar en cómo manejar los datos dinámicos y cargar la información adecuada al abrir cada modal.
+
+---
+
+### Componentes y Elementos del Entorno de Desarrollo en React Utilizados
+
+1. **React Router:** Utilizado para la navegación entre las páginas del Log In y el Home.
+2. **React Bootstrap:** Para el diseño y estructura de los formularios, botones, modales y layout general de la aplicación.
+3. **React Intl:** Para manejar la internacionalización de los textos en inglés y español.
+4. **Hooks de React:**
+   - `useState`: Para manejar el estado interno de los componentes.
+   - `useEffect`: Para cargar los datos del usuario y actividades desde el API mock.
+
+---
