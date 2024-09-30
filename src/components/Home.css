@@ -1,3 +1,6 @@
+body{
+    background-color: white;
+}
 
 .home-container{
     display: flex;
@@ -9,12 +12,40 @@
 
 .post-image{
     margin-left: 10px;
-}
-
-.post-image{
-    width: 200px;
+    height: 140px;
 }
 
 .rou{
-    background-color: aquamarine;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    background-color: #0b626a;
+}
+
+h1{
+    color: rgb(0, 0, 0);
+}
+
+.carta {
+    height: 140px;
+    margin: 5px;
+  }
+
+.carta .card-img-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: left;
+  }
+  
+.carta .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+.carta .card-text {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+.Card-image{
+    height: 140px;
 }

@@ -1,14 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { IntlProvider } from 'react-intl';
+import { messages } from './components/messages';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const language = navigator.language.split(/[-_]/)[0];
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <IntlProvider locale={language} messages={messages[language]}>
+      <App />
+    </IntlProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
